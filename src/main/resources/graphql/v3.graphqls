@@ -12,8 +12,8 @@ input EmployeeRequestDto {
   firstName: String!
   lastName: String!
   position: String!
-  salary: Int
   age: Int
+  salary: Int
   organizationId: Int!
   departmentId: Int!
 }
@@ -23,8 +23,8 @@ type Employee {
   firstName: String!
   lastName: String!
   position: String!
-  salary: Int
   age: Int
+  salary: Int
   department: Department
   organization: Organization
 }

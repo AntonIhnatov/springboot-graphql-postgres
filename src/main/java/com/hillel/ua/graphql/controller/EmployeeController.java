@@ -9,6 +9,7 @@ import com.hillel.ua.graphql.filter.FilterField;
 import com.hillel.ua.graphql.repository.DepartmentRepository;
 import com.hillel.ua.graphql.repository.EmployeeRepository;
 import com.hillel.ua.graphql.repository.OrganizationRepository;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -41,7 +42,7 @@ public class EmployeeController {
     public Employee newEmployee(@Argument EmployeeRequestDto employee) {
         Department department = departmentRepository.findById(employee.getDepartmentId()).get();
         Organization organization = organizationRepository.findById(employee.getOrganizationId()).get();
-        return employeeRepository.save(new Employee(null, employee.getFirstName(), employee.getLastName(), employee.getPosition(), employee.getAge(), employee.getSalary(), department, organization));
+        return employeeRepository.save(new Employee(null, employee.getFirstName(), employee.getLastName(), employee.getPosition(), employee.getSalary(),employee.getAge(), department, organization, null));
     }
 
     @QueryMapping
